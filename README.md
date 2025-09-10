@@ -1,87 +1,40 @@
-# Face Recognition Attendance System
+# Face Attendance System
 
-An automated **Attendance Management System** that uses **Face Recognition** to mark and store attendance securely. 
-This project helps replace manual roll calls with a faster and more reliable solution.
+This is a simple project I worked on to automate attendance using face recognition.  
+It uses OpenCV and the `face_recognition` library to detect and recognize faces from a webcam feed.
 
-## 🚀 Features
-- 📸 Face detection & recognition using OpenCV
-- 📝 Automatic attendance logging in CSV/Excel format
-- 🕒 Real-time recognition via webcam
-- 🗂️ Easy-to-use project structure
-- ✅ Human-friendly and customizable
+## How it works
+- Add new faces to the dataset using `insert.py`.
+- Train the system with `train.py`.
+- Use `facerecog.py` to recognize faces and mark attendance in `attendance.csv`.
+- `facedetec.py` can be used just for detecting faces without attendance.
 
-## 🛠️ Tech Stack
-- Python 3.x  
-- OpenCV – for face detection & recognition  
-- NumPy & Pandas – for data handling  
-- Tkinter / Flask (if UI included) – for interface  
-
-## 📂 Project Structure
-```
-
-face-attendance/
-│── data/               # Stores face data/images
-│── attendance/         # CSV/Excel attendance logs
-│── src/                # Main source code
-│   ├── train.py        # Train face recognition model
-│   ├── recognize.py    # Recognize faces & mark attendance
-│   └── utils.py        # Helper functions
-│── requirements.txt    # Python dependencies
-│── README.md           # Project documentation
-│── main.py             # Entry point
-
-````
-
-## ⚙️ Installation
-1. Clone the repository:
+## Setup
+1. Create a virtual environment (optional but recommended):
    ```bash
-   git clone https://github.com/your-username/face-attendance.git
-   cd face-attendance
-```
+   python -m venv venv
+   source venv/bin/activate   # macOS / Linux
+   venv\Scripts\activate      # Windows
+   ```
 
-2. Install dependencies:
-
+2. Install the required libraries:
    ```bash
    pip install -r requirements.txt
    ```
 
-3. Run the system:
-
-   ```bash
-   python main.py
-   ```
-
-## 🎯 Usage
-
-* Run `main.py` to start webcam face recognition.
-* When a registered face is detected, attendance is automatically recorded in the `attendance/` folder.
-* To add a new student/employee, capture their images in `data/` and retrain the model with `train.py`.
-
-## 📊 Output Example
-
-* **Attendance file** (`attendance/2025-09-10.csv`)
-
-  ```
-  Name, ID, Time
-  John Doe, 101, 09:45:23
-  Jane Smith, 102, 09:47:10
-  ```
-
-## 🔮 Future Improvements
-
-* Cloud integration for attendance storage
-* Mobile app sync
-* Improved face recognition with Deep Learning
-
-## 🤝 Contributing
-
-Pull requests are welcome! For major changes, please open an issue first to discuss what you’d like to change.
-
-## 📜 License
-
-This project is licensed under the **MIT License**.
-
+## Usage
+You can run scripts directly, for example:
+```bash
+python train.py
+python facerecog.py
 ```
 
-Would you like me to also **generate a `requirements.txt` file** for this repo so everything is fully plug-and-play?
+Or use the helper file for convenience:
+```bash
+python main.py train
+python main.py recognize
 ```
+
+## Notes
+- Make sure the `tp/` folder contains images of the people you want to recognize.
+- The recognized names will be saved into `attendance.csv`.
