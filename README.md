@@ -80,8 +80,3 @@ Pull requests are welcome! For major changes, please open an issue first to disc
 ## 📜 License
 
 This project is licensed under the **MIT License**.
-
-```
-
-Would you like me to also **generate a `requirements.txt` file** for this repo so everything is fully plug-and-play?
-```
